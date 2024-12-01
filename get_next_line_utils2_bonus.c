@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils2.c                             :+:      :+:    :+:   */
+/*   get_next_line_utils2_bonus.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 07:26:09 by aychikhi          #+#    #+#             */
-/*   Updated: 2024/12/01 07:00:51 by aychikhi         ###   ########.fr       */
+/*   Created: 2024/12/01 06:54:16 by aychikhi          #+#    #+#             */
+/*   Updated: 2024/12/01 08:32:19 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_strchr(const char *s, int c)
 {

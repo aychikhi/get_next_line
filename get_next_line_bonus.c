@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/24 15:23:46 by aychikhi          #+#    #+#             */
-/*   Updated: 2024/12/01 07:05:34 by aychikhi         ###   ########.fr       */
+/*   Created: 2024/12/01 08:34:10 by aychikhi          #+#    #+#             */
+/*   Updated: 2024/12/01 08:34:14 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*read_line(int fd, char *buffer, char *remainder)
 {
@@ -62,29 +62,15 @@ static char	*extract_line(char **remainder)
 char	*get_next_line(int fd)
 {
 	char		*buffer;
-	static char	*remainder;
+	static char	*remainder[10240];
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-		return (free(remainder), remainder = NULL, NULL);
+		return (free(remainder[fd]), remainder[fd] = NULL, NULL);
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
-		return (free(remainder), remainder = NULL, NULL);
-	remainder = read_line(fd, buffer, remainder);
-	if (!remainder)
+		return (free(remainder[fd]), remainder[fd] = NULL, NULL);
+	remainder[fd] = read_line(fd, buffer, remainder[fd]);
+	if (!remainder[fd])
 		return (free(buffer), NULL);
-	return (free(buffer), extract_line(&remainder));
+	return (free(buffer), extract_line(&remainder[fd]));
 }
-
-// int main()
-// {
-// 	int fd = open("only_nl.txt", O_CREAT | O_RDONLY , 0777);
-// 	char *line;
-// 	printf("get_next_line: \"%s\"", get_next_line(fd));
-// 	printf("get_next_line: \"%s\"", get_next_line(fd));
-// 	printf("get_next_line: \"%s\"", get_next_line(fd));
-// 	// printf("get_next_line: \"%s\"", get_next_line(fd));
-// 	// printf("get_next_line: \"%s\"", get_next_line(fd));
-
-// 	close(fd);
-// 	return (0);
-// }
