@@ -6,13 +6,13 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 08:32:52 by aychikhi          #+#    #+#             */
-/*   Updated: 2024/12/01 08:38:52 by aychikhi         ###   ########.fr       */
+/*   Updated: 2024/12/02 04:39:12 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	size_t	i;
 

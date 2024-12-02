@@ -6,7 +6,7 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 15:21:49 by aychikhi          #+#    #+#             */
-/*   Updated: 2024/12/01 08:33:31 by aychikhi         ###   ########.fr       */
+/*   Updated: 2024/12/02 04:39:40 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@
 
 char	*get_next_line(int fd);
 char	*ft_strdup(const char *s1);
+size_t	ft_strlen(const char *str);
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
+char	*ft_substr(const char *s, unsigned int start, size_t len);
 
 #endif

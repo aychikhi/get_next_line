@@ -6,11 +6,31 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 08:34:10 by aychikhi          #+#    #+#             */
-/*   Updated: 2024/12/01 08:34:14 by aychikhi         ###   ########.fr       */
+/*   Updated: 2024/12/02 04:38:14 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+
+char	*ft_strchr(const char *s, int c)
+{
+	char	*str;
+	size_t	i;
+	size_t	len;
+
+	if (!s)
+		return (NULL);
+	str = (char *)s;
+	len = ft_strlen(str);
+	i = 0;
+	while (i <= len)
+	{
+		if (str[i] == (char)c)
+			return (str + i);
+		i++;
+	}
+	return (NULL);
+}
 
 static char	*read_line(int fd, char *buffer, char *remainder)
 {

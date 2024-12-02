@@ -6,11 +6,31 @@
 /*   By: aychikhi <aychikhi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/24 15:23:46 by aychikhi          #+#    #+#             */
-/*   Updated: 2024/12/01 07:05:34 by aychikhi         ###   ########.fr       */
+/*   Updated: 2024/12/02 04:37:28 by aychikhi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+char	*ft_strchr(const char *s, int c)
+{
+	char	*str;
+	size_t	i;
+	size_t	len;
+
+	if (!s)
+		return (NULL);
+	str = (char *)s;
+	len = ft_strlen(str);
+	i = 0;
+	while (i <= len)
+	{
+		if (str[i] == (char)c)
+			return (str + i);
+		i++;
+	}
+	return (NULL);
+}
 
 static char	*read_line(int fd, char *buffer, char *remainder)
 {
@@ -74,17 +94,3 @@ char	*get_next_line(int fd)
 		return (free(buffer), NULL);
 	return (free(buffer), extract_line(&remainder));
 }
-
-// int main()
-// {
-// 	int fd = open("only_nl.txt", O_CREAT | O_RDONLY , 0777);
-// 	char *line;
-// 	printf("get_next_line: \"%s\"", get_next_line(fd));
-// 	printf("get_next_line: \"%s\"", get_next_line(fd));
-// 	printf("get_next_line: \"%s\"", get_next_line(fd));
-// 	// printf("get_next_line: \"%s\"", get_next_line(fd));
-// 	// printf("get_next_line: \"%s\"", get_next_line(fd));
-
-// 	close(fd);
-// 	return (0);
-// }
